@@ -1,20 +1,51 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import WelcomeScreen from './screens/WelcomeScreen';
+import MainScreen from './screens/MainScreen';
+import ProjectScreen from './screens/ProjectScreen';
+import ChatBotScreen from './screens/ChatBotScreen';
+import TranslationScreen from './screens/TranslationScreen';
 
-export default function App() {
+const Stack = createStackNavigator();
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Welcome">
+        {/* Welcome Screen */}
+        <Stack.Screen 
+          name="Welcome" 
+          component={WelcomeScreen} 
+          options={{ headerShown: false }} 
+        />
+        {/* Main Screen */}
+        <Stack.Screen 
+          name="Main" 
+          component={MainScreen} 
+          options={{ headerShown: false }} 
+        />
+        {/* Project Screen */}
+        <Stack.Screen 
+          name="Project" 
+          component={ProjectScreen} 
+          options={{ title: 'Explore Projects' }} 
+        />
+        {/* ChatBox Screen */}
+        <Stack.Screen 
+          name="ChatBox" 
+          component={ChatBotScreen} 
+          options={{ title: 'Chat with EcoBot' }} 
+        />
+        {/* Translation Screen */}
+        <Stack.Screen 
+          name="Translation" 
+          component={TranslationScreen} 
+          options={{ title: 'Language Translation' }} 
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
