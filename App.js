@@ -1,4 +1,5 @@
 import React from 'react';
+<<<<<<< HEAD
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import WelcomeScreen from './screens/WelcomeScreen';
@@ -49,3 +50,10 @@ const App = () => {
 };
 
 export default App;
+=======
+import AppNavigator from './navigation/AppNavigator';
+
+export default function App() {
+  return <AppNavigator />;
+}
+>>>>>>> abab8e5b4b3e5308cbd9c0405bc4ff312c3c3ad4
